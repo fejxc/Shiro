@@ -9,13 +9,11 @@
     <title>Document</title>
 </head>
 <body>
-        <h1>系统主页</h1>
-        <a href="${pageContext.request.contextPath}/user/logout">退出</a>
-        <ul>
-            <li><a href="">用户管理</a></li>
-            <li><a href="">商品管理</a></li>
-            <li><a href="">订单管理</a></li>
-            <li><a href="">物流管理</a></li>
-        </ul>
+        <h1>注册</h1>
+        <form action="${pageContext.request.contextPath}/user/register" method="post">
+            用户名：<input type="text" name="username"> <br>
+            密码：<input type="password" name="password"> <br>
+            <input type="submit" value="立即注册">
+        </form>
 </body>
 </html>
