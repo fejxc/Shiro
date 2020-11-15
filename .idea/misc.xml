@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/shrio/pom.xml" />
         <option value="$PROJECT_DIR$/ch001-shiro/pom.xml" />
+        <option value="$PROJECT_DIR$/ch002-springboot-jsp-shiro/pom.xml" />
       </list>
     </option>
   </component>
