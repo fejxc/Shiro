@@ -9,6 +9,8 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.subject.Subject;
 
+import java.util.Arrays;
+
 public class TestCustomeMd5RealmAuthenicator {
     public static void main(String[] args) {
         //创建安全管理器
@@ -35,6 +37,40 @@ public class TestCustomeMd5RealmAuthenicator {
         }catch (IncorrectCredentialsException e){
             e.printStackTrace();
             System.out.println("密码错误");
+        }
+
+        //认证用户授权
+        if(subject.isAuthenticated()){
+
+            //1.基于角色控制权限
+            System.out.println(subject.hasRole("admin"));
+//            System.out.println(subject.hasRole("user"));
+//            System.out.println(subject.hasRole("super"));
+
+            //基于多角色权限控制
+            System.out.println(subject.hasAllRoles(Arrays.asList("admin", "user")));
+
+            //是否具有其中的一个角色
+            boolean[] booleans = subject.hasRoles(Arrays.asList("admin","user","super"));
+            for (boolean a:booleans    //将数据库查询的角色信息赋值给权限对象
+                 ) {
+                System.out.println(a);
+            }
+
+            System.out.println("***************************");
+            //基于权限字符串的访问控制  资源标识符:操作:资源类型
+            System.out.println("权限"+subject.isPermitted("user:update:01"));
+            System.out.println("权限"+subject.isPermitted("product:create"));
+            
+            //分别具有哪些权限 (.var iter )
+            boolean[] permitted = subject.isPermitted("user:*:01", "order:*:01");
+            for (boolean b : permitted) {
+                System.out.println(b);
+            }
+            
+            //同时具有哪些权限
+            boolean permittedAll = subject.isPermittedAll("user:*:01", "product:create:110");
+            System.out.println(permittedAll);
         }
 
     }
