@@ -24,4 +24,13 @@
         left join t_role r on ur.roleid = r.id
         where u.username=#{username}
     </select>
+
+    <select id="findPermsByRoleId" parameterType="String" resultType="Perms">
+        select p.id,p.name,p.url,r.name from t_role r
+        left join t_role_perms rp
+        on r.id = rp.roleid
+        left join t_perms p
+        on rp.permsid = p.id
+        where r.id=#{id}
+    </select>
 </mapper>

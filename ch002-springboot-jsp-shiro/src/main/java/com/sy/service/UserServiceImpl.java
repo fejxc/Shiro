@@ -1,6 +1,7 @@
 package com.sy.service;
 
 import com.sy.dao.UserDAO;
+import com.sy.entity.Perms;
 import com.sy.entity.User;
 import com.sy.utils.SAltUtils;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 
 
 @Service
@@ -37,5 +39,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findRolesByUserName(String username) {
         return userDAO.findRolesByUserName(username);
+    }
+
+    @Override
+    public List<Perms> findPermsByRoleId(String id) {
+        return userDAO.findPermsByRoleId(id);
     }
 }

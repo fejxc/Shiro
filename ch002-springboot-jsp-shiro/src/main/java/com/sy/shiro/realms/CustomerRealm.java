@@ -1,5 +1,6 @@
 package com.sy.shiro.realms;
 
+import com.sy.entity.Perms;
 import com.sy.entity.Role;
 import com.sy.entity.User;
 import com.sy.service.UserService;
@@ -34,22 +35,18 @@ public class CustomerRealm extends AuthorizingRealm {
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
             user.getRoles().forEach(role -> {
                 simpleAuthorizationInfo.addRole(role.getName());
+
+                //权限信息
+                List<Perms> perms = userService.findPermsByRoleId(role.getId());
+                if(!CollectionUtils.isEmpty(perms)){
+                    perms.forEach(perms1 -> {
+                        simpleAuthorizationInfo.addStringPermission(perms1.getName());
+                    });
+                }
             });
             return simpleAuthorizationInfo;
         }
-
-
-//        if("lisi".equals(primaryPrincipal)){
-//            SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-//            simpleAuthorizationInfo.addRole("admin");
-//            simpleAuthorizationInfo.addRole("user");
-//            simpleAuthorizationInfo.addStringPermission("user:find:*");
-//            simpleAuthorizationInfo.addStringPermission("user:update:*");
-//            return simpleAuthorizationInfo;
-//        }
-
         return null;
-
     }
 
     //认证
@@ -58,11 +55,7 @@ public class CustomerRealm extends AuthorizingRealm {
         System.out.println("*************");
         String principal = (String) authenticationToken.getPrincipal();
         UserService userService = (UserService) ApplicationContextUtils.getBean("userServiceImpl");
-        //System.out.println(userService);
         User user = userService.findByUserName(principal);
-//        if("lisi".equals(principal)){
-//            return new SimpleAuthenticationInfo(principal,"12345",this.getName());
-//        }
         if(!ObjectUtils.isEmpty(user)){
             return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(), ByteSource.Util.bytes(user.getSalt()),this.getName());
 

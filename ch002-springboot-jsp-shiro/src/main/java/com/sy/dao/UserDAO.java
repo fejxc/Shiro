@@ -1,6 +1,9 @@
 package com.sy.dao;
+import com.sy.entity.Perms;
 import com.sy.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface UserDAO {
@@ -10,4 +13,7 @@ public interface UserDAO {
 
     //查询用户角色
     User findRolesByUserName(String username);
+
+    //根据角色id查询权限集合
+    List<Perms> findPermsByRoleId(String id);
 }
