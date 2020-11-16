@@ -1,8 +1,10 @@
 package com.sy.shiro.realms;
 
+import com.sy.entity.Role;
 import com.sy.entity.User;
 import com.sy.service.UserService;
 import com.sy.utils.ApplicationContextUtils;
+import org.apache.commons.collections.ListUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -12,7 +14,11 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.apache.shiro.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
+
+import java.util.Collection;
+import java.util.List;
 
 public class CustomerRealm extends AuthorizingRealm {
     @Override
@@ -21,14 +27,27 @@ public class CustomerRealm extends AuthorizingRealm {
         String primaryPrincipal = (String) principalCollection.getPrimaryPrincipal();
         System.out.println("调用授权验证" +primaryPrincipal);
         //根据主身份信息获取角色信息和资源的权限信息
-        if("lisi".equals(primaryPrincipal)){
+        UserService userService = (UserService) ApplicationContextUtils.getBean("userServiceImpl");
+        User user = userService.findRolesByUserName(primaryPrincipal);
+        //赋值授权角色
+        if(!CollectionUtils.isEmpty(user.getRoles())){
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-            simpleAuthorizationInfo.addRole("admin");
-            simpleAuthorizationInfo.addRole("user");
-            simpleAuthorizationInfo.addStringPermission("user:find:*");
-            simpleAuthorizationInfo.addStringPermission("user:update:*");
+            user.getRoles().forEach(role -> {
+                simpleAuthorizationInfo.addRole(role.getName());
+            });
             return simpleAuthorizationInfo;
         }
+
+
+//        if("lisi".equals(primaryPrincipal)){
+//            SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+//            simpleAuthorizationInfo.addRole("admin");
+//            simpleAuthorizationInfo.addRole("user");
+//            simpleAuthorizationInfo.addStringPermission("user:find:*");
+//            simpleAuthorizationInfo.addStringPermission("user:update:*");
+//            return simpleAuthorizationInfo;
+//        }
+
         return null;
 
     }
@@ -39,7 +58,7 @@ public class CustomerRealm extends AuthorizingRealm {
         System.out.println("*************");
         String principal = (String) authenticationToken.getPrincipal();
         UserService userService = (UserService) ApplicationContextUtils.getBean("userServiceImpl");
-        System.out.println(userService);
+        //System.out.println(userService);
         User user = userService.findByUserName(principal);
 //        if("lisi".equals(principal)){
 //            return new SimpleAuthenticationInfo(principal,"12345",this.getName());

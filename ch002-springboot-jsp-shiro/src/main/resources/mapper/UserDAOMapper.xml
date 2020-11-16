@@ -9,4 +9,19 @@
     <select id="findByUserName" resultType="User" parameterType="String">
         select id,username,password,salt from t_user where username=#{username}
     </select>
+
+    <resultMap id="userMap" type="User">
+        <id column="uid" property="id"></id>
+        <result column="uname" property="username"></result>
+            <!-- 角色信息-->
+        <collection property="roles" javaType="list" ofType="Role">
+            <id column="rid" property="id"></id>
+            <result column="rname" property="name"></result>
+        </collection>
+    </resultMap>
+    <select id="findRolesByUserName" parameterType="String" resultMap="userMap">
+        select u.id uid, u.username uname,r.id rid ,r.name rname from t_user u left join t_user_role ur on u.id = ur.userid
+        left join t_role r on ur.roleid = r.id
+        where u.username=#{username}
+    </select>
 </mapper>

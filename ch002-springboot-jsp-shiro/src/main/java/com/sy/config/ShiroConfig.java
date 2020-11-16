@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
 import java.util.HashMap;
 
 /**
- * 用来真个好shiro的相关配置
+ * 用来整个shiro的相关配置
  */
 @Configuration
 public class ShiroConfig {

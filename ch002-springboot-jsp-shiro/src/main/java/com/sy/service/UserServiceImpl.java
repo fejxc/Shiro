@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -30,5 +32,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByUserName(String username) {
         return userDAO.findByUserName(username);
+    }
+
+    @Override
+    public User findRolesByUserName(String username) {
+        return userDAO.findRolesByUserName(username);
     }
 }
