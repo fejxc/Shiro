@@ -26,4 +26,9 @@ public class UserServiceImpl implements UserService {
         user.setPassword(md5Hash.toHex());
         userDAO.save(user);
     }
+
+    @Override
+    public User findByUserName(String username) {
+        return userDAO.findByUserName(username);
+    }
 }

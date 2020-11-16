@@ -5,4 +5,8 @@
     <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into t_user values (#{id},#{username},#{password},#{salt})
     </insert>
+
+    <select id="findByUserName" resultType="User" parameterType="String">
+        select id,username,password,salt from t_user where username=#{username}
+    </select>
 </mapper>

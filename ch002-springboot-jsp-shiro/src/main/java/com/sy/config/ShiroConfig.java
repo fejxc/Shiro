@@ -1,6 +1,7 @@
 package com.sy.config;
 
 import com.sy.shiro.realms.CustomerRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -49,6 +50,13 @@ public class ShiroConfig {
     @Bean
     public Realm realm(){
         CustomerRealm customerRealm = new CustomerRealm();
+        //修改凭证校验匹配器
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
+        //设置md5算法
+        credentialsMatcher.setHashAlgorithmName("MD5");
+        //散列次数
+        credentialsMatcher.setHashIterations(1024);
+        customerRealm.setCredentialsMatcher(credentialsMatcher);
         return customerRealm;
     }
 }
