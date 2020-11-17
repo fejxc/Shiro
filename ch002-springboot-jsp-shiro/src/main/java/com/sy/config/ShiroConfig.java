@@ -2,6 +2,7 @@ package com.sy.config;
 
 import com.sy.shiro.realms.CustomerRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -57,6 +58,14 @@ public class ShiroConfig {
         //散列次数
         credentialsMatcher.setHashIterations(1024);
         customerRealm.setCredentialsMatcher(credentialsMatcher);
+
+        //开启缓存
+        customerRealm.setCacheManager(new EhCacheManager());
+        customerRealm.setCachingEnabled(true); //开启全局缓存
+        customerRealm.setAuthenticationCachingEnabled(true);//开启认证缓存
+        customerRealm.setAuthenticationCacheName("AuthenticationCache"); //设置缓存中的名字
+        customerRealm.setAuthorizationCachingEnabled(true);//开始授权缓存
+        customerRealm.setAuthorizationCacheName("AuthorizationCache");//设置缓存中的名字
         return customerRealm;
     }
 }
