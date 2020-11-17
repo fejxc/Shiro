@@ -1,5 +1,6 @@
 package com.sy.config;
 
+import com.sy.shiro.cache.RedisCacheManage;
 import com.sy.shiro.realms.CustomerRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
@@ -60,7 +61,8 @@ public class ShiroConfig {
         customerRealm.setCredentialsMatcher(credentialsMatcher);
 
         //开启缓存
-        customerRealm.setCacheManager(new EhCacheManager());
+        //customerRealm.setCacheManager(new EhCacheManager());
+        customerRealm.setCacheManager(new RedisCacheManage());
         customerRealm.setCachingEnabled(true); //开启全局缓存
         customerRealm.setAuthenticationCachingEnabled(true);//开启认证缓存
         customerRealm.setAuthenticationCacheName("AuthenticationCache"); //设置缓存中的名字
