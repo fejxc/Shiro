@@ -30,6 +30,7 @@ public class ShiroConfig {
         HashMap<String, String> map = new HashMap<>();
         map.put("/user/login","anon");  //不受限的资源顺序放在前面
         map.put("/user/register","anon");  //不受限的资源顺序放在前面
+        map.put("/user/get**","anon");  //不受限的资源顺序放在前面
         map.put("/register.jsp","anon");  //不受限的资源顺序放在前面
         map.put("/**","authc"); //authc 请求这个资源需要认证授权   anon匿名访问
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
