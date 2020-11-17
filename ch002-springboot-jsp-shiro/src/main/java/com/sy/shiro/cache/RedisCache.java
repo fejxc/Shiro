@@ -7,7 +7,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.util.Collection;
-import java.util.Map;
 import java.util.Set;
 //自定义redis缓存实现
 public class RedisCache<k,v> implements Cache<k,v> {
@@ -36,27 +35,27 @@ public class RedisCache<k,v> implements Cache<k,v> {
 
     @Override
     public v remove(k k) throws CacheException {
-        return null;
+        return (v) getRedisTemplate().opsForHash().delete(this.cacheName,k.toString());
     }
 
     @Override
     public void clear() throws CacheException {
-
+        getRedisTemplate().delete(this.cacheName);
     }
 
     @Override
     public int size() {
-        return 0;
+        return getRedisTemplate().opsForHash().size(this.cacheName).intValue();
     }
 
     @Override
     public Set<k> keys() {
-        return null;
+        return getRedisTemplate().opsForHash().keys(this.cacheName);
     }
 
     @Override
     public Collection<v> values() {
-        return null;
+        return getRedisTemplate().opsForHash().values(this.cacheName);
     }
     //封装获取 RedisTemplate的方法
     private RedisTemplate getRedisTemplate(){
