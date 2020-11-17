@@ -4,6 +4,7 @@ import com.sy.entity.Perms;
 import com.sy.entity.Role;
 import com.sy.entity.User;
 import com.sy.service.UserService;
+import com.sy.shiro.salt.MyByteSource;
 import com.sy.utils.ApplicationContextUtils;
 import org.apache.commons.collections.ListUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -57,7 +58,7 @@ public class CustomerRealm extends AuthorizingRealm {
         UserService userService = (UserService) ApplicationContextUtils.getBean("userServiceImpl");
         User user = userService.findByUserName(principal);
         if(!ObjectUtils.isEmpty(user)){
-            return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(), ByteSource.Util.bytes(user.getSalt()),this.getName());
+            return new SimpleAuthenticationInfo(user.getUsername(),user.getPassword(), new MyByteSource(user.getSalt()),this.getName());
 
         }
         return null;
