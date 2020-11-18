@@ -1,6 +1,6 @@
 # Shiro 实战教程
 
-![image-20200520220106539](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220106539.png)
+![image-20200520220106539](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220106539.png)
 
 ## 1.权限的管理
 
@@ -32,7 +32,7 @@
 
 ## 3.shiro的核心架构
 
-![image-20200520220413190](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220413190.png)
+![image-20200520220413190](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220413190.png)
 
 ### 3.1 Subject
 
@@ -98,7 +98,7 @@
 
 ### 4.3 认证流程
 
-![image-20200521204452288](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521204452288.png)
+![image-20200521204452288](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521204452288.png)
 
 ### 4.4 认证的开发
 
@@ -120,7 +120,7 @@ xiaochen=123
 zhangsan=456
 ```
 
-![image-20200521205219719](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521205219719.png)
+![image-20200521205219719](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521205219719.png)
 
 ##### 3.开发认证代码
 
@@ -167,11 +167,11 @@ public class TestAuthenticator {
 
 ##### 1.shiro提供的Realm
 
-![image-20200521212728541](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521212728541.png)
+![image-20200521212728541](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521212728541.png)
 
 ##### 2.根据认证源码认证使用的是SimpleAccountRealm
 
-![image-20200521213451998](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521213451998.png)
+![image-20200521213451998](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521213451998.png)
 
 `SimpleAccountRealm的部分源码中有两个方法一个是 认证 一个是 授权`,
 
@@ -353,7 +353,7 @@ public class TestAuthenticatorCusttomerRealm {
 
 ### 5.3 授权流程
 
-![image-20200521230705964](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521230705964.png)
+![image-20200521230705964](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200521230705964.png)
 
 ### 5.4 授权方式
 
@@ -515,11 +515,11 @@ public class TestAuthenticatorCusttomerRealm {
 
 ### 6.0 整合思路
 
-![image-20200525185630463](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200525185630463.png)
+![image-20200525185630463](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200525185630463.png)
 
 ### 6.1 创建springboot项目
 
-![image-20200523100842032](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523100842032.png)
+![image-20200523100842032](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523100842032.png)
 
 ### 6.2 引入shiro依赖
 
@@ -535,7 +535,7 @@ public class TestAuthenticatorCusttomerRealm {
 
 ##### 0.创建配置类
 
-![image-20200523101256446](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101256446.png)
+![image-20200523101256446](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101256446.png)
 
 ##### 1.配置shiroFilterFactoryBean
 
@@ -564,7 +564,7 @@ public DefaultWebSecurityManager getSecurityManager(Realm realm){
 
 ##### 3.创建自定义realm
 
-![image-20200523101402213](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101402213.png)
+![image-20200523101402213](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101402213.png)
 
 ```java
 public class CustomerRealm extends AuthorizingRealm {
@@ -605,13 +605,13 @@ public class IndexController {
 }
 ```
 
-![image-20200523101733157](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101733157.png)
+![image-20200523101733157](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101733157.png)
 
-![image-20200523101857528](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101857528.png)
+![image-20200523101857528](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101857528.png)
 
 ##### 6.启动springboot应用访问index
 
-![image-20200523101955121](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101955121.png)
+![image-20200523101955121](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523101955121.png)
 
 - 注意:
   - **默认在配置好shiro环境后默认环境中没有对项目中任何资源进行权限控制,所有现在项目中所有资源都可以通过路径访问**
@@ -629,13 +629,13 @@ public class IndexController {
   shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
   ```
 
-  ![image-20200523102303320](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523102303320.png)
+  ![image-20200523102303320](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523102303320.png)
 
   - **/\**** 代表拦截项目中一切资源  **authc** 代表shiro中的一个filter的别名,详细内容看文档的shirofilter列表
 
 ##### 8.重启项目访问查看
 
-![image-20200523102831750](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523102831750.png)
+![image-20200523102831750](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200523102831750.png)
 
 ### 6.4 常见过滤器
 
@@ -659,7 +659,7 @@ public class IndexController {
 
 ##### 1. 在login.jsp中开发认证界面
 
-![image-20200526082345776](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082345776.png)
+![image-20200526082345776](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082345776.png)
 
 ```html
 <form action="${pageContext.request.contextPath}/user/login" method="post">
@@ -719,11 +719,11 @@ public class UserController {
 
 ##### 4.启动项目以realm中定义静态数据进行认证
 
-![image-20200526082550343](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082550343.png)
+![image-20200526082550343](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082550343.png)
 
-![image-20200526082639318](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082639318.png)
+![image-20200526082639318](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082639318.png)
 
-![image-20200526082620621](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082620621.png)
+![image-20200526082620621](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082620621.png)
 
 - **认证功能没有md5和随机盐的认证就实现啦**
 
@@ -731,7 +731,7 @@ public class UserController {
 
 ##### 1.开发页面退出连接
 
-![image-20200526082851800](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082851800.png)
+![image-20200526082851800](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526082851800.png)
 
 ##### 2.开发controller
 
@@ -754,11 +754,11 @@ public class UserController {
 
 ##### 3.修改退出连接访问退出路径
 
-![image-20200526083056062](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526083056062.png)
+![image-20200526083056062](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526083056062.png)
 
 ##### 4.退出之后访问受限资源立即返回认证界面
 
-![image-20200526083148253](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526083148253.png)
+![image-20200526083148253](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526083148253.png)
 
 ### 6.7 MD5、Salt的认证实现
 
@@ -775,7 +775,7 @@ public class UserController {
 </form>
 ```
 
-![image-20200526200230982](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200230982.png)
+![image-20200526200230982](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200230982.png)
 
 ##### 1.创建数据表结构
 
@@ -797,7 +797,7 @@ CREATE TABLE `t_user` (
 SET FOREIGN_KEY_CHECKS = 1;
 ```
 
-![image-20200526200425569](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200425569.png)
+![image-20200526200425569](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200425569.png)
 
 ##### 2.项目引入依赖
 
@@ -847,7 +847,7 @@ mybatis.mapper-locations=classpath:com/baizhi/mapper/*.xml
 
 ```
 
-![image-20200526200558712](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200558712.png)
+![image-20200526200558712](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200558712.png)
 
 ##### 4.创建entity
 
@@ -964,7 +964,7 @@ public class UserController {
 
 ##### 11.启动项目进行注册
 
-![image-20200526200946730](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200946730.png)
+![image-20200526200946730](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526200946730.png)
 
 ----
 
@@ -1082,7 +1082,7 @@ public Realm getRealm(){
 }
 ```
 
-![image-20200526204958726](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526204958726.png)
+![image-20200526204958726](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200526204958726.png)
 
 ### 6.8 授权实现
 
@@ -1136,7 +1136,7 @@ public String save(){
 }
 ```
 
-![image-20200527203343928](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527203343928.png)
+![image-20200527203343928](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527203343928.png)
 
 ##### 2.方法调用授权
 
@@ -1153,13 +1153,13 @@ public String save(){
 }
 ```
 
-![image-20200527203415114](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527203415114.png)
+![image-20200527203415114](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527203415114.png)
 
 ----
 
 ##### 3.授权数据持久化
 
-![image-20200527204839080](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527204839080.png)
+![image-20200527204839080](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527204839080.png)
 
 ```sql
 SET NAMES utf8mb4;
@@ -1323,7 +1323,7 @@ public class CustomerRealm extends AuthorizingRealm {
 }
 ```
 
-![image-20200527213821611](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527213821611.png)
+![image-20200527213821611](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200527213821611.png)
 
 ##### 9.启动测试
 
@@ -1337,7 +1337,7 @@ public class CustomerRealm extends AuthorizingRealm {
 - 作用: **用来减轻DB的访问压力,从而提高系统的查询效率**
 - 流程: 
 
-![image-20200530090656417](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530090656417.png)
+![image-20200530090656417](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530090656417.png)
 
 #### 2.使用shiro中默认EhCache实现缓存
 
@@ -1376,7 +1376,7 @@ public class CustomerRealm extends AuthorizingRealm {
     }
 ```
 
-![image-20200529173859939](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200529173859939.png)
+![image-20200529173859939](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200529173859939.png)
 
 ##### 3.启动刷新页面进行测试
 
@@ -1402,7 +1402,7 @@ spring.redis.host=localhost
 spring.redis.database=0
 ```
 
-![image-20200530084616799](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530084616799.png)
+![image-20200530084616799](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530084616799.png)
 
 ##### 3.启动redis服务
 
@@ -1413,7 +1413,7 @@ redis-benchmark redis-check-rdb redis-sentinel  redis-trib.rb
 ➜  bin ./redis-server redis.conf
 ```
 
-![image-20200530081954871](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530081954871.png)
+![image-20200530081954871](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530081954871.png)
 
 ##### 4.开发RedisCacheManager
 
@@ -1504,9 +1504,9 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
 ##### 6.启动项目测试发现报错
 
-![image-20200530100850618](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530100850618.png)
+![image-20200530100850618](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530100850618.png)
 
-![image-20200530100948598](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530100948598.png)
+![image-20200530100948598](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530100948598.png)
 
 - 错误解释: **由于shiro中提供的simpleByteSource实现没有实现序列化,所有在认证时出现错误信息**
 
@@ -1542,11 +1542,11 @@ public class RedisCache<K,V> implements Cache<K,V> {
     }
     ```
 
-    ![image-20200530101301543](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530101301543.png)
+    ![image-20200530101301543](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530101301543.png)
 
 ##### 7.再次启动测试,发现可以成功放入redis缓存
 
-![image-20200530101617692](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530101617692.png)
+![image-20200530101617692](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530101617692.png)
 
 ----
 
@@ -1572,11 +1572,11 @@ public class RedisCache<K,V> implements Cache<K,V> {
 
 - 放行验证码
 
-  ![image-20200530141757606](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530141757606.png)
+  ![image-20200530141757606](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530141757606.png)
 
 - 开发页面
 
-  ![image-20200530141828004](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530141828004.png)
+  ![image-20200530141828004](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200530141828004.png)
 
 - 修改认证流程
 
@@ -1810,7 +1810,7 @@ public ShiroDialect shiroDialect(){
 }
 ```
 
-![image-20200601210335151](/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200601210335151.png)
+![image-20200601210335151](https://github.com/fejxc/Shiro/tree/master/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200601210335151.png)
 
 
 
