@@ -9,7 +9,7 @@ tags:
 ---
 # Shiro 实战教程
 
-![image-20200520220106539](/Users/sunyun/Documents/JavaProjects/Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220106539.png)
+![image-20200520220106539](Shrio/ch002-springboot-jsp-shiro/src/main/resources/imgs/image-20200520220106539.png)
 
 ## 1.权限的管理
 
